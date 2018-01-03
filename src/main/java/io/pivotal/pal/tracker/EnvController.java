@@ -14,9 +14,9 @@ public class EnvController {
     private final String memoryLimit;
     private final String cfInstanceIndex;
     private final String cfInstanceAddress;
-    private final String input_msg;
 
-/*
+
+  /*
     @Autowired
     EnvController(@Value("${WELCOME_MESSAGE}") final String input_msg)
     {
@@ -25,24 +25,17 @@ public class EnvController {
 
     */
 
-    @GetMapping("/")
-    public String sayHello()
-    {
-        return  input_msg;
-    }
 
     public EnvController(
             @Value("${PORT:NOT SET}") String port,
             @Value("${MEMORY_LIMIT:NOT SET}") String memoryLimit,
             @Value("${CF_INSTANCE_INDEX:NOT SET}") String cfInstanceIndex,
-            @Value("${CF_INSTANCE_ADDR:NOT SET}") String cfInstanceAddress,
-            @Value("${WELCOME_MESSAGE}") final String input_msg
+            @Value("${CF_INSTANCE_ADDR:NOT SET}") String cfInstanceAddress
     ) {
         this.port = port;
         this.memoryLimit = memoryLimit;
         this.cfInstanceIndex = cfInstanceIndex;
         this.cfInstanceAddress = cfInstanceAddress;
-        this.input_msg = input_msg;
     }
 
     @GetMapping("/env")
